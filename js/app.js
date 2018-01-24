@@ -46,7 +46,7 @@ function init() {
  function loadFeed(id, cb) {
 
     // error handling 
-    if(id > allFeeds.length){
+    if(id < 0 || id >= allFeeds.length){
         id = 0; //  fail gracefully
         console.log('id out of range, set to 0');
     }
