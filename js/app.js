@@ -1,3 +1,6 @@
+
+/*jshint esversion: 6 */
+
 /* app.js
  *
  * This is our RSS feed reader application. It uses the Google
@@ -41,7 +44,18 @@ function init() {
  * which will be called after everything has run successfully.
  */
  function loadFeed(id, cb) {
-     var feedUrl = allFeeds[id].url,
+
+    // error handling 
+    if(id > allFeeds.length){
+        id = 0; //  fail gracefully
+        console.log('id out of range, set to 0');
+    }
+
+    if(id){
+        console.log('id undefined, set to 0');
+    }
+
+     const feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
 
      $.ajax({
